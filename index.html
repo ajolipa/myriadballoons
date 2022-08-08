@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Rebecca Black's Projects Hub</title>
+    <meta charset="utf-8">
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+<!-- some fonts -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:regular,bold&amp;subset=Latin">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+$(document).ready(function(){
+	var sections = ["home", "teaching", "writing", "coding", "resume", "contact"];
+	var url = window.location;
+	var urlObj = new URL(url);
+	var sect = urlObj.searchParams.get('section');
+	if (sections.includes(sect)) {
+	$(".active").removeClass("in").removeClass("active");
+	element = document.getElementById(sect);
+	element.classList.add("in");
+	element.classList.add("active");
+	navID = sect+"-nav";
+	element = document.getElementById(navID);
+	element.classList.add("active");
+	}
+	$(".navtab").click(function() {
+	var tabID = $(this).attr("id");
+	var tabName = tabID.split("-")[0];
+	newurl = 'index.html?section=' + tabName;
+	if (history.replaceState) {
+		history.replaceState({}, null, newurl);
+	}
+	});
+	
+	$(".summary").click(function(){
+		var selected = $(this).attr("id");
+		var fullID = "#" + selected + "-deets";
+		$(".details").hide();
+		$(fullID).show();
+	});
+	
+	});
+
+
+
+</script>
+<style>
+body {
+	font-family:lato;
+	background-color:rgb(235,242,255);
+	line-height:1.6;
+	color:rgb(31,0,68);
+	}
+
+.navbar-inverse .navbar-nav > li > a {
+	color:rgb(239, 231, 248); <!--text color in header -->
+	}
+
+.navbar-inverse .navbar-brand {
+	color:rgb(239, 231, 248);
+	}
+
+.navbar-inverse {
+	background:rgb(66,1,146); <!--background color in header -->
+	}
+	
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+    color: #fff;
+    background-color: rgb(31,0,68);
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: rgb(31,0,68);
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: transparent;
+}
+
+.details {
+	display: none;
+	}
+
+a:hover {
+	text-decoration: none;
+	}
+	
+.summary {
+	background:rgb(243,247,255);
+	border-radius:20px;
+	border: 1px solid rgb(66,1,146);
+	padding-left:15px;
+	padding-top:4px;
+	padding-right:15px;
+	padding-bottom:4px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+
+	}
+	
+.summary:hover {
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.details {
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+	border-radius:20px;
+	padding:15px;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.infodump {
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+	border-radius:20px;
+	padding:15px;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.tile {
+	background:rgb(243,247,255);
+	border-radius:10px;
+	text-align:center;
+	border: 1px solid rgb(66,1,146);
+	padding-left:15px;
+	padding-top:4px;
+	padding-right:15px;
+	padding-bottom:4px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+	margin-top:10px;
+	margin-bottom:10px;
+	}
+	
+.tile:hover {
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+img.social {
+	max-width:9%;
+	margin-right:9px;
+	margin-bottom:2px;
+}
+</style>
+
+  </head>
+  
+ <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.html">Rebecca Black</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="navtab" id="home-nav"><a data-toggle="tab" href="#home">Home</a></li>
+        <li class="navtab" id="teaching-nav"><a data-toggle="tab" href="#teaching">Teaching</a></li>
+        <li class="navtab" id="writing-nav"><a data-toggle="tab" href="#writing">Queer Media Analysis</a></li>
+        <li class="navtab" id="coding-nav"><a data-toggle="tab" href="#coding">Coding Projects</a></li>
+		<li class="navtab" id="resume-nav"><a data-toggle="tab" href="#resume">Resume</a></li>
+		<li class="navtab" id="contact-nav"><a data-toggle="tab" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container">
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+	<!-- content for home page goes here -->
+
+	
+	<div class="row">
+	<div class="col-sm-3">
+	<div class="thumbnail">
+          <img src="me.jpg" style="width:100%">
+      </div>
+	
+	</div>
+	<div class="col-sm-9">
+	<h3>Welcome!</h3>
+	<p>I am Rebecca: mathematician, linguist, programmer, educator, writer, translator, artist, anime nerd. This site is my attempt to organize a bunch of my favorite projects and accomplishments into one hub, so that I might better market myself to the world as I attempt to pivot my career out of the confines of academia (too honest??). I have graduate degrees in both math and applied linguistics, twelve years of experience teaching (including designing several original courses), a decade of experience writing about discourse and narrative, and proficiency in Python and relational databases (including designing and implementing several interactive websites from scratch). Please look around and enjoy, and don’t hesitate to reach out if you have questions about any of the work here, or if you might want to work together!</p>
+	<div class="row">
+		<div class="col-sm-4">
+		<a href="https://www.twitter.com/ajolipa" target="_blank">
+			<div class="tile">
+	<img src="twitter.png" class="social" /> @ajolipa
+			</div>
+			</a>
+		</div>
+		<div class="col-sm-4">
+		<a href="https://www.instagram.com/ajolipa/" target="_blank">
+			<div class="tile">
+	<img src="insta.png" class="social"/> @ajolipa
+			</div>
+		</a>
+		</div>
+		<div class="col-sm-4">
+			<div class="tile" style="cursor:default;">
+	<img src="email.png" class="social"/> rebecca.ann.black at gmail
+			</div>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<a href="https://www.linkedin.com/in/rebecca-black-0a4759231/" target="_blank">
+			<div class="tile">
+	<img src="linkedin.png" class="social" /> LinkedIn
+			</div>
+			</a>
+		</div>
+		<div class="col-sm-4">
+		<a href="https://medium.com/@ajolipa" target="_blank">
+			<div class="tile">
+	<img src="medium.png" class="social"/> Medium
+			</div>
+		</a>
+		</div>
+		<div class="col-sm-4">
+		<a href="https://www.upwork.com/freelancers/~01ad94bc8341104d2e" target="_blank">
+			<div class="tile">
+	<img src="upwork.png" class="social"/> UpWork
+			</div>
+			</a>
+		</div>	
+	</div>
+	</div>
+</div>
+
+    </div>
+	
+    <div id="teaching" class="tab-pane fade">
+	<!-- program and philosophy -->
+      <h3>Teaching Philosophy</h3>
+<p>blah blah</p>
+    </div>
+    <div id="writing" class="tab-pane fade">
+	<h3>Narrative Analysis</h3>
+	<p>I have a not-so-secret agenda of revolutionizing how we talk about the portrayal of queer identities and themes in fiction, and over the past several years I have been part of several projects aimed at deepening and shifting that discourse. While this has so far been on the passion project side of my life rather than the professional side, my writing and collaboration in this area is some of the work I am most proud of. Stories matter, and finding shared history, identity, symbolism, and struggle through stories matters. Too often we present queer fiction as fitting nicely into labels and categories, dichotomized by things like "explicit/canon representation" or moralistic ideas of "good" vs. "bad" rep, but those frameworks are extremely limiting and erase so much of the deep nuance, subtext, metaphor, etc. that queer authors have always used to tell their stories in a hostile world.</p>
+	<div class="row">
+	<div class="col-sm-12">
+	<div class="infodump" id="anigay">
+	<h4>AniGay</h4>
+	<h6>Co-founder, editor, writer</h6>
+	<p><i>AniGay</i> is a blog that I created along with Elizabeth Simins and Rupa Jogani to talk about all facets of how queerness is explored in anime. In particular, our focus is on the queer stories that can fall through the cracks because they are told through subtext, metaphor, allegory, parallelism, etc. The articles I've written for <i>AniGay</i> draw both from my study of the Japanese language and time living in Japan, and from my applied linguistics graduate studies in discourse analysis. I encourage you to poke around and read whatever on the site catches your interest! Below are direct links to my two most-read articles.</p>
+	
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		
+		<div class="col-sm-4">
+		<a href="https://medium.com/anigay/let-me-begin-by-giving-you-a-puzzle-71aa326293cc" target="_blank">
+		<div class="tile">
+			<h4>Impossibilities in Translating Queerness: The Dodgeball Dilemma</h4>
+			<div class="thumbnail">
+			<img src="dodgeball.gif" style="width:100%;"/>
+				<div class="caption">
+					An in-depth look at layers of meaning in <i>Hunter x Hunter</i> and what gets lost in translation. <i>(10.4K views)</i>
+				</div>
+			</div>
+		</div></a>
+		</div>
+		
+		<div class="col-sm-2">
+		</div>
+		
+		<div class="col-sm-4">
+		<a href="https://medium.com/anigay/the-shape-of-queer-liberation-on-the-geometry-of-promare-cf8b1b47ced4" target="_blank">
+		<div class="tile">
+			<h4>The Shape of Queer Liberation: On the Geometry of <i>Promare</i></h4>
+			<div class="thumbnail">
+			<img src="promare.gif" style="width:100%;"/>
+				<div class="caption">
+					In appreciation of the rich visual language with which Studio Trigger's <i>Promare</i> tells a story of radical liberation. <i>(15.2K views)</i>
+				</div>
+			</div>
+		</div></a>
+		</div>
+		
+		<div class="col-sm-1">
+		</div>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="row">
+	<div class="col-sm-12">
+	<div class="infodump" id="icebergs">
+	<h4>Icebergs</h4>
+	<h6>Co-author with Elizabeth Simins</h6>
+	<p>The 1988 anime <i>Legend of the Galactic Heroes</i> changed my life. Before watching it in 2017 I naively did not expect to find one of the most nuanced, unflinching, resonant, heartbreaking critiques of heteronormativity ever written in an anime from the '80s about futuristic space wars. English language scholarship on the way these themes permeate the story was pretty much impossible to find, and so Elizabeth and I set about creating it. While the project has been on hiatus for several years now (as both Elizabeth and I have been finishing graduate degrees, weathering the pandemic, etc.), we are hoping to continue our analysis of the show in some form in the near future, so stay tuned! Meanwhile click below for our FAQ page, from which you can also access the post archive.</p>
+	
+	<div class="row">
+		<div class="col-sm-4">
+		</div>
+		
+		<div class="col-sm-4">
+		<a href="https://logh-icebergs.tumblr.com/FAQs" target="_blank">
+		<div class="tile">
+		<h4>LoGH: Icebergs</h4>
+		<div class="thumbnail">
+			<img src="logh.gif" style="width: 100%;" />
+			<div class="caption">
+			(Also Tumblr changed how their stylesheets work and messed up a lot of our formatting, and also deleted our first post for some reason, so we will be porting to a new platform at some point!)
+			</div>
+		</div>
+		</div>
+		</a>
+		
+		
+		</div>
+		
+		<div class="col-sm-4">
+		</div>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+    <div id="coding" class="tab-pane fade">
+
+      <h3>Coding Projects</h3>
+	  <p>I have taken classes in MySQL/PHP and Java (as part of my linguistics masters) and Pandas dataframes (on Coursera), and more importantly I have spent the last ten years independently teaching myself Python and honing my coding and web development skills by creating and maintaining several large scale projects. A common theme of my academic background in math (particularly algebraic geometry and topology) and linguistics (conversation and discourse analysis, as well as classical Chomskyan syntax) has always been the discovery of patterns and the interplay between the messy details and the overarching structures that govern them. I believe this is my strength as a programmer as well: I am quick to see creative big-picture organizational solutions, the complex interconnections between different facets of an application and how to flow along them; and then, perhaps more crucially, I am a master at stubbornly forcing the code to carry out my vision successfully. (Seriously, debugging is somehow my favorite part of coding—is that weird? There’s a purity to it: you know that there must be a problem somewhere, and you have the power to systematically root it out <i>and then it will work.</i> Magical.) My biggest weakness as a programmer is perhaps a corollary of that stubbornness: not every solution I find will end up being the slickest code possible. But I am aware of the possibility of gaps in my knowledge and I learn extremely quickly, and collaborating on my two biggest projects has trained me in the beauty of overly thorough comments.</p>
+	  
+	  <!--summary tiles go here-->
+	  <div class="row">
+	  <div class="col-sm-4">
+	  <div class="summary" id="elo">
+	  <h4>Magic: The Gathering Elo Project</h4>
+	  <p>Skills employed:
+		<ul>
+			<li>MySQL</li>
+			<li>PHP</li>
+			<li>HTML</li>
+			<li>JavaScript/JQuery</li>
+			<li>Python</li>
+			<li>Pandas</li>
+		</ul></p>
+	  
+	  </div>
+	  </div>
+	  
+	  <div class="col-sm-4">
+	  <div class="summary" id="cube">
+	  <h4>Cube Draft Simulator</h4>
+	  <p>Skills employed:
+		<ul>
+			<li>Python</li>
+			<li>Flask</li>
+			<li>JavaScript/JQuery</li>
+			<li>Ajax</li>
+			<li>Git</li>
+			<li>Heroku</li>
+			<li>Redis</li>
+		</ul></p>
+		</div>
+		</div>
+		
+		<div class="col-sm-4">
+		<div class="summary" id="nfl">
+		<h4>NFL Confidence Pool Site</h4>
+		<p>Skills employed:
+			<ul>
+				<li>MySQL</li>
+				<li>PHP</li>
+				<li>HTML</li>
+			</ul></p>
+		</div>
+		</div>
+	</div>
+	  
+	  <div class="details" id="elo-deets">
+	  <p>The collectible card game <i>Magic: The Gathering</i> has a competitive history stretching back to the mid nineties, and yet my collaborator Adam Lizzi and I observed that there was no comprehensive searchable database for the competitive results of individual players. Modifying the Elo rating system from chess, we built a database of MtG competitive history, along with a user-friendly web interface where players can see their match history, Elo ratings, head to head records versus other players, stats and leaderboards from across the competitive scene, and even aggregate statistics among a custom "team" of their own choosing. We continually update the database with new high-level tournament results; at this point our database contains [NUMBER] players and over [NUMBER] matches.</p>
+	  <p>For this project Adam was in charge of scraping all of the data from the individual tournament websites and sanitizing it; I was in charge of the database structure and all of the MySQL/PHP code that powers the interactive elements of the site, as well as the graph visualizations which use JavaScript.</p>
+	  <div class="row">
+		<div class="col-sm-6" style="padding:20px;">
+			<div class="row row-cols-1">
+			<div class="col-sm">
+			<div class="thumbnail">
+				<img src="elo-player.png" style="width:100%"/>
+			</div>
+			</div>
+			<div class="col-sm">
+						<div class="thumbnail">
+				<img src="elo-home.png" style="width:100%"/>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="col-sm-6" style="padding:20px;">
+		<div class="row row-cols-1">
+		<div class="col-sm">
+			<div class="thumbnail">
+				<img src="elo-h2h.png" style="width:100%"/>
+			</div>
+		</div>
+		<div class="col-sm">
+			<div class="thumbnail">
+				<img src="elo-leaders.png" style="width:100%"/>
+			</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	</div>
+	
+	<div class="details" id="cube-deets">
+	<p>When the pandemic hit, it became impossible to get groups of friends together in the same room to play card games or board games together, so many of us turned to digital replacements. My friends and I wanted to play a Magic format in which you simultaneously draft cards from a set of 15-card packs consisting of cards drawn from a custom curated list ("cube"). Digital engines for Magic exist, but don't give you the ability to draft with a specific set of people from a custom pool of cards, so Adam Lizzi and I set out to build a web app that lets you do just that. The Cube Draft Simulator is a lightweight web application built with Flask for Python and deployed on Heroku, and it allows a group of users to simulate the experience of sitting around the kitchen table passing packs of cards around the circle. This app has been used not only by our own friend group to keep in touch during the pandemic, but by several other users who submitted their own curated set of cards, and the site was even used by a group of professional players for a charity cube draft event.</p>
+	<p>For this project, Adam created the Python engine that simulates the effect of picking a card from a pack and passing the packs around the table, as well as much of the CSS/JavaScript that creates the visual browser interface; I was in charge of getting the pieces to talk to each other so that the cards and picks are coordinated across the individual users' browsers. Tools involved included Flask, Ajax, Jinja2, Git, Redis, JQuery, Heroku.</p>
+	
+	<div class="row">
+		<div class="col-sm-6" style="padding:20px;">
+			<div class="row row-cols-1">
+			<div class="col-sm">
+			<div class="thumbnail">
+				<img src="cube-1.png" style="width:100%"/>
+			</div>
+			</div>
+			<div class="col-sm">
+						<div class="thumbnail">
+				<img src="cube-2.jpg" style="width:100%"/>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="col-sm-6" style="padding:20px;">
+		<div class="row row-cols-1">
+		<div class="col-sm">
+			<div class="thumbnail">
+				<img src="cube-3.png" style="width:100%"/>
+			</div>
+		</div>
+		<div class="col-sm">
+			<div class="thumbnail">
+				<img src="cube-4.jpg" style="width:100%"/>
+			</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="details" id="nfl-deets">
+	<p>The first interactive website I ever built was a small-scale NFL confidence pool site for my partner and his friends, first built in 2011 and then adapted for several years after that. (Don't worry, only bragging rights were on the line!) The site was built using MySQL and PHP and allowed users who were part of the betting pool to log in, see the lines for each game for that week, and place bets against the spread ordered from most to least confident. The administrator account also had the ability to enter the weekly lines as well as the score from each game, after which the outcomes of all of the bets and the points awarded each participant were calculated and logged automatically. It was a lightweight site and never developed for public use (passwords were not especially secure, for example) but I am proud of it as a first project!</p>
+	</div>
+	
+
+    </div>
+	<div id="resume" class="tab-pane fade">
+	<!-- html version of resume? -->
+	<h3>My Resume</h3>
+
+	</div>
+	<div id="contact" class="tab-pane fade">
+	<!-- contact info -->
+
+	</div>
+	</div>
+  </div>
+</div>
+
+</body> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</html>
